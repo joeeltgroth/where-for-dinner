@@ -1,5 +1,5 @@
-id: cfc8f54a-9ee7-425c-977c-2c0855392a66
-timestamp: 2024-03-06T19:01:38.985Z
+id: a33e3949-fd80-4115-9d9e-985879bb025d
+timestamp: 2024-03-06T19:14:58.146Z
 source: TAP-GUI
 username: guest
 options:
@@ -7,7 +7,7 @@ options:
   workloadNamespace: workloads
   serviceNamespace: service-instances
   workloadType: web
-  gatewayType: tapscg
+  gatewayType: ossscg
   msgBrokerType: rabbitmq
   dynamicMsgBroker: false
   msgbrokerName: msgbroker-where-for-dinner
@@ -18,7 +18,6 @@ options:
   ployglotWorkloads: false
   nativeBuild: false
   includeBuildToolWrapper: true
-  gatewayName: gateway-where-for-dinner
   numRabbitMQClusterNodes: 1
 accelerator:
   name: where-for-dinner
