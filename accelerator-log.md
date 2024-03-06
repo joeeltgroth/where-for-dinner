@@ -4,20 +4,21 @@
 ```json
 {
   "projectName" : "where-for-dinner",
-  "workloadNamespace" : "wfd1",
+  "workloadNamespace" : "workloads",
   "serviceNamespace" : "service-instances",
   "workloadType" : "web",
-  "gatewayType" : "ossscg",
+  "gatewayType" : "tapscg",
   "msgBrokerType" : "rabbitmq",
   "dynamicMsgBroker" : false,
   "msgbrokerName" : "msgbroker-where-for-dinner",
   "dbType" : "h2",
   "cacheType" : "inmemCache",
   "enableSecurity" : false,
-  "appWorkloadURL" : "http://where-for-dinner.tap.z24776168.shepherd.lease",
+  "appWorkloadURL" : "http://where-for-dinner.tap.ze98e28ea.shepherd.lease",
   "ployglotWorkloads" : false,
   "nativeBuild" : false,
   "includeBuildToolWrapper" : true,
+  "gatewayName" : "gateway-where-for-dinner",
   "numRabbitMQClusterNodes" : 1
 }
 ```
@@ -221,198 +222,398 @@
 ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/templates/**, **/icons/**, **/.git/**, **/deployment/**, **/where-for-dinner-api-gateway/**] -> included
 ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/templates/**, **/icons/**, **/.git/**, **/deployment/**, **/where-for-dinner-api-gateway/**] -> included
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[1] (Combo)
-┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'ossscg') evaluated to true
-┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Include
-┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[1].delegate (Include)
-┃ ┃ ┃ ┃ ┃ ┃  Info Will include [**/where-for-dinner-api-gateway/**]
-┃ ┃ ┃ ┃ ┃ ┃ Debug LICENSE didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug README.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug pom.xml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/catalog-info.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug doc/DynamicServiceProvisioning.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug doc/TAPDeployment.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug icons/where-for-dinner.png didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/appSSOInstance.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicMySqlInstance.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRabbitMQCluster.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRedisInstance.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/ingress.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlInstance.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlResourceClaim.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisInstance.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisResourceClaim.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqCluster.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqResourceClaim.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgInstance.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgRoutes.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloadRegistrationResourceClaim.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloads.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/.gitignore matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/Tiltfile matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/pom.xml matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/Tiltfile didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/pom.xml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/pom.xml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Procfile didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Tiltfile didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/requirements.txt didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/README.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/Tiltfile didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/pom.xml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/README.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/Tiltfile didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/catalog-info.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/pom.xml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/README.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/Tiltfile didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/pom.xml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.env didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.gitignore didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/README.md didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/httpproxy.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/nginx.conf didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package-lock.json didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package.json didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/groups/org.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/systems/where-for-dinner-system.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/AppHomeScreen.png didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/DinnerHighLevelArch.png didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/SCSMessaging.png didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/config/workload.yaml matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/apiserver.py didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/diningstructs.py didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/localrandomsearcher.py didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/searcher.py didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/config/workload.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/favicon.png didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/index.html didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/manifest.json didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/robots.txt didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.css didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.test.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/Availability.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningNames.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearch.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearches.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningTypes.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/SearchDefForm.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/TimeWindow.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.css didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/logo.svg didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/reportWebVitals.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/setupTests.js didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-api-gateway/where-for-dinner-api-gateway.yaml matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-availability/where-for-dinner-availability.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-notify/where-for-dinner-notify.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search/where-for-dinner-search.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search-proc/where-for-dinner-search-proc.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-ui/where-for-dinner-ui.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/db/where-for-dinner-db-resource.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/messaging/where-for-dinner-messaging-resource.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/images/delete.png didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/resources/application.yaml matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/application.yaml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-h2.sql didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-mysql.sql didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-postgresql.sql didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.properties didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.yml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/resources/application.yml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/application.yml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-h2.sql didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-mysql.sql didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-postgresql.sql didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/resources/application.yml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/resources/application.yml didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/META-INF/spring.factories didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/META-INF/spring.factories didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/java/com/java/example/tanzu/wherefordinner/DinnerAPIGatewayApplication.java matched [**/where-for-dinner-api-gateway/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplicationTests.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityTestApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplicationTests.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplicationTests.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyTestApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplicationTests.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResTestApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplicationTests.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcTestApplication.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/Availability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/AvailabilityWindow.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Search.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityRepository.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityWindowRepository.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/resources/AvailabilityResource.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink_processDeletedSearchTest.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/LocalRandomSearcher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/EmailMessageConfigProperties.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/PublisherConfiguration.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/functions/AvailabilitySink.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/EmailPublisher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/LoggerPublisher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/Publisher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/entity/Search.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/functions/SearchSupplier.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/repository/SearchRepository.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/repository/SearchRepositoryTest.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/DeclarativeClientConfig.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/exchange/CrawlerClient.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/functions/Search.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/SearchProcessor.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/Searcher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/HashCache.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/MemoryHashCache.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/RedisHashCache.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/where-for-dinner-api-gateway/**] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'ossscg') evaluated to false
+┃ ┃ ┃ ┃ ┃ ┗ null ()
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[2] (Combo)
-┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'tapscg') evaluated to false
-┃ ┃ ┃ ┃ ┃ ┗ null ()
+┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'tapscg') evaluated to true
+┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Chain
+┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[2].delegate (Chain)
+┃ ┃ ┃ ┃ ┃ ┃  Info Running Chain(Include, YTT, RewritePath, RewritePath)
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[2].delegate.transformations[0] (Include)
+┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Will include [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug LICENSE didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug README.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/catalog-info.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/DynamicServiceProvisioning.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/TAPDeployment.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug icons/where-for-dinner.png didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/appSSOInstance.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicMySqlInstance.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRabbitMQCluster.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRedisInstance.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/ingress.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlInstance.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlResourceClaim.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisInstance.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisResourceClaim.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqCluster.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqResourceClaim.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgInstance.yaml matched [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> included
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgRoutes.yaml matched [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> included
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloadRegistrationResourceClaim.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloads.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/Tiltfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/Tiltfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Procfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Tiltfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/requirements.txt didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/README.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/Tiltfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/README.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/Tiltfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/catalog-info.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/README.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/Tiltfile didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/pom.xml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.env didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.gitignore didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/README.md didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/httpproxy.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/nginx.conf didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package-lock.json didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package.json didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/groups/org.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/systems/where-for-dinner-system.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/AppHomeScreen.png didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/DinnerHighLevelArch.png didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/SCSMessaging.png didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/apiserver.py didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/diningstructs.py didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/localrandomsearcher.py didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/searcher.py didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/config/workload.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/favicon.png didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/index.html didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/manifest.json didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/robots.txt didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.css didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.test.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/Availability.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningNames.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearch.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearches.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningTypes.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/SearchDefForm.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/TimeWindow.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.css didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/logo.svg didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/reportWebVitals.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/setupTests.js didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-api-gateway/where-for-dinner-api-gateway.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-availability/where-for-dinner-availability.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-notify/where-for-dinner-notify.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search/where-for-dinner-search.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search-proc/where-for-dinner-search-proc.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-ui/where-for-dinner-ui.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/db/where-for-dinner-db-resource.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/messaging/where-for-dinner-messaging-resource.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/images/delete.png didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/resources/application.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/application.yaml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-h2.sql didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-mysql.sql didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-postgresql.sql didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.properties didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.yml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/resources/application.yml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/application.yml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-h2.sql didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-mysql.sql didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-postgresql.sql didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/resources/application.yml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/resources/application.yml didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/META-INF/spring.factories didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/META-INF/spring.factories didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/java/com/java/example/tanzu/wherefordinner/DinnerAPIGatewayApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplicationTests.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityTestApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplicationTests.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplicationTests.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyTestApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplicationTests.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResTestApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplicationTests.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcTestApplication.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/Availability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/AvailabilityWindow.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Search.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityRepository.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityWindowRepository.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/resources/AvailabilityResource.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink_processDeletedSearchTest.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/LocalRandomSearcher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/EmailMessageConfigProperties.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/PublisherConfiguration.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/functions/AvailabilitySink.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/EmailPublisher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/LoggerPublisher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/Publisher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/entity/Search.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/functions/SearchSupplier.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/repository/SearchRepository.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/repository/SearchRepositoryTest.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/DeclarativeClientConfig.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/exchange/CrawlerClient.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/functions/Search.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/SearchProcessor.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/Searcher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/HashCache.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/MemoryHashCache.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/RedisHashCache.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/templates/scgInstance.yaml, **/templates/scgRoutes.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[2].delegate.transformations[1] (YTT)
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","gatewayName":"gateway-where-for-dinner","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"tapscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.ze98e28ea.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input697391707735650401, --data-values-file, /tmp/accelerator-options13701148752252837742.json, --output-files, /tmp/ytt-output14279237393113562489]
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[2].delegate.transformations[2] (RewritePath)
+┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug Path 'templates/scgInstance.yaml' matched 'templates/scgInstance.yaml' with groups {g0=templates/scgInstance.yaml} and was rewritten to 'config/service-operator/scgInstance.yaml'
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[2].delegate.transformations[3] (RewritePath)
+┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path 'templates/scgRoutes.yaml' matched 'templates/scgRoutes.yaml' with groups {g0=templates/scgRoutes.yaml} and was rewritten to 'config/app-operator/scgRoutes.yaml'
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[3] (Combo)
-┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'tapscg' || #workloadType == 'server') evaluated to false
-┃ ┃ ┃ ┃ ┃ ┗ null ()
+┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'tapscg' || #workloadType == 'server') evaluated to true
+┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Chain
+┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[3].delegate (Chain)
+┃ ┃ ┃ ┃ ┃ ┃  Info Running Chain(Include, YTT, RewritePath)
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[3].delegate.transformations[0] (Include)
+┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Will include [**/templates/ingress.yaml]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug LICENSE didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug README.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/catalog-info.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/DynamicServiceProvisioning.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/TAPDeployment.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug icons/where-for-dinner.png didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/appSSOInstance.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicMySqlInstance.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRabbitMQCluster.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRedisInstance.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/ingress.yaml matched [**/templates/ingress.yaml] -> included
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlInstance.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlResourceClaim.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisInstance.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisResourceClaim.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqCluster.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqResourceClaim.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgInstance.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgRoutes.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloadRegistrationResourceClaim.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloads.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/Tiltfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/Tiltfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Procfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Tiltfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/requirements.txt didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/README.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/Tiltfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/README.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/Tiltfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/catalog-info.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/README.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/Tiltfile didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/pom.xml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.env didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.gitignore didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/README.md didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/httpproxy.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/nginx.conf didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package-lock.json didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package.json didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/groups/org.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/systems/where-for-dinner-system.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/AppHomeScreen.png didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/DinnerHighLevelArch.png didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/SCSMessaging.png didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/apiserver.py didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/diningstructs.py didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/localrandomsearcher.py didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/searcher.py didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/config/workload.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/favicon.png didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/index.html didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/manifest.json didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/robots.txt didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.css didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.test.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/Availability.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningNames.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearch.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearches.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningTypes.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/SearchDefForm.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/TimeWindow.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.css didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/logo.svg didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/reportWebVitals.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/setupTests.js didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-api-gateway/where-for-dinner-api-gateway.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-availability/where-for-dinner-availability.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-notify/where-for-dinner-notify.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search/where-for-dinner-search.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search-proc/where-for-dinner-search-proc.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-ui/where-for-dinner-ui.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/db/where-for-dinner-db-resource.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/messaging/where-for-dinner-messaging-resource.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/images/delete.png didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/resources/application.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/application.yaml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-h2.sql didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-mysql.sql didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-postgresql.sql didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.properties didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.yml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/resources/application.yml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/application.yml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-h2.sql didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-mysql.sql didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-postgresql.sql didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/resources/application.yml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/resources/application.yml didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/META-INF/spring.factories didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/META-INF/spring.factories didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/java/com/java/example/tanzu/wherefordinner/DinnerAPIGatewayApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplicationTests.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityTestApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplicationTests.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplicationTests.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyTestApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplicationTests.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResTestApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplicationTests.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcTestApplication.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/Availability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/AvailabilityWindow.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Search.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityRepository.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityWindowRepository.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/resources/AvailabilityResource.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink_processDeletedSearchTest.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/LocalRandomSearcher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/EmailMessageConfigProperties.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/PublisherConfiguration.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/functions/AvailabilitySink.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/EmailPublisher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/LoggerPublisher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/Publisher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/entity/Search.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/functions/SearchSupplier.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/repository/SearchRepository.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/repository/SearchRepositoryTest.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/DeclarativeClientConfig.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/exchange/CrawlerClient.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/functions/Search.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/SearchProcessor.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/Searcher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/HashCache.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/MemoryHashCache.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/RedisHashCache.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/templates/ingress.yaml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[3].delegate.transformations[1] (YTT)
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","gatewayName":"gateway-where-for-dinner","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"tapscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.ze98e28ea.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input5051600330863424335, --data-values-file, /tmp/accelerator-options5121011617226018588.json, --output-files, /tmp/ytt-output16891960361777182202]
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[3].delegate.transformations[2] (RewritePath)
+┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path 'templates/ingress.yaml' matched 'templates/ingress.yaml' with groups {g0=templates/ingress.yaml} and was rewritten to 'config/app-operator/ingress.yaml'
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4] (Combo)
 ┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Chain
 ┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate (Chain)
@@ -602,8 +803,8 @@
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/templates/workloads.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/templates/workloads.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[1] (YTT)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.z24776168.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"wfd1","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
-┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input1661856781518959927, --data-values-file, /tmp/accelerator-options12768408970003787567.json, --output-files, /tmp/ytt-output5105919511190605449]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","gatewayName":"gateway-where-for-dinner","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"tapscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.ze98e28ea.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input17407975308769006602, --data-values-file, /tmp/accelerator-options3655004231362685562.json, --output-files, /tmp/ytt-output539454549723215073]
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[2] (RewritePath)
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug Path 'templates/workloads.yaml' matched 'templates/workloads.yaml' with groups {g0=templates/workloads.yaml} and was rewritten to 'config/developer/workloads.yaml'
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3] (InvokeFragment)
@@ -799,8 +1000,8 @@
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/rmqCluster.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/rmqCluster.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[5].delegate.transformations[1] (YTT)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.z24776168.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"wfd1","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
-┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input8309782225005617671, --data-values-file, /tmp/accelerator-options17554501818915731866.json, --output-files, /tmp/ytt-output3009701828402325597]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","gatewayName":"gateway-where-for-dinner","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"tapscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.ze98e28ea.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input13783044360193229785, --data-values-file, /tmp/accelerator-options10093012919244520846.json, --output-files, /tmp/ytt-output1971887598733087741]
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[5].delegate.transformations[2] (RewritePath)
 ┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path 'templates/rmqCluster.yaml' matched 'templates/rmqCluster.yaml' with groups {g0=templates/rmqCluster.yaml} and was rewritten to 'config/service-operator/rmqCluster.yaml'
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[6] (Combo)
@@ -1002,8 +1203,8 @@
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/rmqResourceClaim.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/rmqResourceClaim.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[9].delegate.transformations[1] (YTT)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.z24776168.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"wfd1","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
-┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input10820288093036220768, --data-values-file, /tmp/accelerator-options10129408506075093339.json, --output-files, /tmp/ytt-output12506178115137829483]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"artifactVersion":"0.0.1-beta","gatewayName":"gateway-where-for-dinner","dynamicMsgBroker":false,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"tapscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.ze98e28ea.shepherd.lease","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input7780227084668587652, --data-values-file, /tmp/accelerator-options876010772986277188.json, --output-files, /tmp/ytt-output6558814229790170530]
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[9].delegate.transformations[2] (RewritePath)
 ┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path 'templates/rmqResourceClaim.yaml' matched 'templates/rmqResourceClaim.yaml' with groups {g0=templates/rmqResourceClaim.yaml} and was rewritten to 'config/app-operator/rmqResourceClaim.yaml'
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[10] (Combo)
@@ -2445,218 +2646,202 @@
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Path 'mvnw.cmd' matched '^(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)' with groups {ext=.cmd, folder=null, filename=mvnw.cmd, g0=mvnw.cmd, g1=null, g2=mvnw.cmd, g3=mvnw.cmd, g4=.cmd} and was rewritten to 'where-for-dinner-crawler/mvnw.cmd'
 ┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path '.mvn/wrapper/maven-wrapper.properties' matched '^(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)' with groups {ext=.properties, folder=.mvn/wrapper/, filename=maven-wrapper.properties, g0=.mvn/wrapper/maven-wrapper.properties, g1=.mvn/wrapper/, g2=maven-wrapper.properties, g3=maven-wrapper.properties, g4=.properties} and was rewritten to 'where-for-dinner-crawler/.mvn/wrapper/maven-wrapper.properties'
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[23] (Combo)
-┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'ossscg') evaluated to true
-┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Chain
-┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate (Chain)
-┃ ┃ ┃ ┃ ┃ ┃  Info Running Chain(InvokeFragment, RewritePath)
-┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0] (InvokeFragment)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0].validated (Combo)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Chain
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0].validated.delegate (Chain)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Running Chain(Merge, UniquePath)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0].validated.delegate.transformations[0] (Merge)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Running Merge(Combo)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0].validated.delegate.transformations[0].sources[0] (Combo)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#includeBuildToolWrapper) evaluated to true
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Include
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0].validated.delegate.transformations[0].sources[0].delegate (Include)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Will include [mvnw, mvnw.cmd, .mvn/**]
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug LICENSE didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug README.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/catalog-info.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/DynamicServiceProvisioning.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/TAPDeployment.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug icons/where-for-dinner.png didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/appSSOInstance.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicMySqlInstance.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRabbitMQCluster.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRedisInstance.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/ingress.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlInstance.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlResourceClaim.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisInstance.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisResourceClaim.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqCluster.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqResourceClaim.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgInstance.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgRoutes.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloadRegistrationResourceClaim.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloads.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/Tiltfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/Tiltfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Procfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Tiltfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/requirements.txt didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/README.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/Tiltfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/README.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/Tiltfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/catalog-info.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/README.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/Tiltfile didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/pom.xml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.env didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.gitignore didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/README.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/httpproxy.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/nginx.conf didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package-lock.json didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package.json didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/groups/org.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/systems/where-for-dinner-system.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/AppHomeScreen.png didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/DinnerHighLevelArch.png didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/SCSMessaging.png didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/apiserver.py didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/diningstructs.py didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/localrandomsearcher.py didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/searcher.py didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/config/workload.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/favicon.png didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/index.html didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/manifest.json didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/robots.txt didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.css didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.test.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/Availability.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningNames.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearch.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearches.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningTypes.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/SearchDefForm.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/TimeWindow.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.css didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/logo.svg didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/reportWebVitals.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/setupTests.js didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-api-gateway/where-for-dinner-api-gateway.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-availability/where-for-dinner-availability.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-notify/where-for-dinner-notify.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search/where-for-dinner-search.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search-proc/where-for-dinner-search-proc.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-ui/where-for-dinner-ui.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/db/where-for-dinner-db-resource.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/messaging/where-for-dinner-messaging-resource.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/images/delete.png didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/resources/application.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/application.yaml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-h2.sql didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-mysql.sql didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-postgresql.sql didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.properties didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.yml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/resources/application.yml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/application.yml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-h2.sql didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-mysql.sql didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-postgresql.sql didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/resources/application.yml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/resources/application.yml didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/META-INF/spring.factories didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/META-INF/spring.factories didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/java/com/java/example/tanzu/wherefordinner/DinnerAPIGatewayApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplicationTests.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityTestApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplicationTests.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplicationTests.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyTestApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplicationTests.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResTestApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplicationTests.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcTestApplication.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/Availability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/AvailabilityWindow.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Search.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityRepository.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityWindowRepository.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/resources/AvailabilityResource.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink_processDeletedSearchTest.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/LocalRandomSearcher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/EmailMessageConfigProperties.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/PublisherConfiguration.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/functions/AvailabilitySink.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/EmailPublisher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/LoggerPublisher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/Publisher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/entity/Search.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/functions/SearchSupplier.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/repository/SearchRepository.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/repository/SearchRepositoryTest.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/DeclarativeClientConfig.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/exchange/CrawlerClient.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/functions/Search.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/SearchProcessor.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/Searcher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/HashCache.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/MemoryHashCache.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/RedisHashCache.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug README.md didn't match [mvnw, mvnw.cmd, .mvn/**] -> excluded
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug mvnw matched [mvnw, mvnw.cmd, .mvn/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug mvnw.cmd matched [mvnw, mvnw.cmd, .mvn/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug .mvn/wrapper/maven-wrapper.properties matched [mvnw, mvnw.cmd, .mvn/**] -> included
-┃ ┃ ┃ ┃ ┃ ┃ ┗ ┗ ╺ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[0].validated.delegate.transformations[1] (UniquePath)
-┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[23].delegate.transformations[1] (RewritePath)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Path 'mvnw' matched '^(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)' with groups {ext=null, folder=null, filename=mvnw, g0=mvnw, g1=null, g2=mvnw, g3=mvnw, g4=null} and was rewritten to 'where-for-dinner-api-gateway/mvnw'
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Path 'mvnw.cmd' matched '^(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)' with groups {ext=.cmd, folder=null, filename=mvnw.cmd, g0=mvnw.cmd, g1=null, g2=mvnw.cmd, g3=mvnw.cmd, g4=.cmd} and was rewritten to 'where-for-dinner-api-gateway/mvnw.cmd'
-┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path '.mvn/wrapper/maven-wrapper.properties' matched '^(?<folder>.*/)?(?<filename>([^/]+?|)(?=(?<ext>\.[^/.]*)?)$)' with groups {ext=.properties, folder=.mvn/wrapper/, filename=maven-wrapper.properties, g0=.mvn/wrapper/maven-wrapper.properties, g1=.mvn/wrapper/, g2=maven-wrapper.properties, g3=maven-wrapper.properties, g4=.properties} and was rewritten to 'where-for-dinner-api-gateway/.mvn/wrapper/maven-wrapper.properties'
-┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[24] (Combo)
-┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'tapscg') evaluated to false
+┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'ossscg') evaluated to false
 ┃ ┃ ┃ ┃ ┃ ┗ null ()
+┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[24] (Combo)
+┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#gatewayType == 'tapscg') evaluated to true
+┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Chain
+┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[24].delegate (Chain)
+┃ ┃ ┃ ┃ ┃ ┃  Info Running Chain(Include, ReplaceText)
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[24].delegate.transformations[0] (Include)
+┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Will include [pom.xml]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug LICENSE didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug README.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug pom.xml matched [pom.xml] -> included
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/catalog-info.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/DynamicServiceProvisioning.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/TAPDeployment.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug icons/where-for-dinner.png didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/appSSOInstance.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicMySqlInstance.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRabbitMQCluster.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/dynamicRedisInstance.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/ingress.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlInstance.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/mysqlResourceClaim.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisInstance.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/redisResourceClaim.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqCluster.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/rmqResourceClaim.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgInstance.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/scgRoutes.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloadRegistrationResourceClaim.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug templates/workloads.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/Tiltfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/pom.xml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/Tiltfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/pom.xml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/pom.xml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Procfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/Tiltfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/requirements.txt didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/README.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/Tiltfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/pom.xml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/README.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/Tiltfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/catalog-info.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/pom.xml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/README.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/Tiltfile didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/pom.xml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.env didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/.gitignore didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/README.md didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/httpproxy.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/nginx.conf didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package-lock.json didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/package.json didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/groups/org.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/systems/where-for-dinner-system.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/AppHomeScreen.png didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/DinnerHighLevelArch.png didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug doc/images/SCSMessaging.png didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/apiserver.py didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/diningstructs.py didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/localrandomsearcher.py didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler-python/src/searcher.py didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/config/workload.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/favicon.png didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/index.html didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/manifest.json didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/public/robots.txt didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.css didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/App.test.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/Availability.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningNames.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearch.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningSearches.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/DiningTypes.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/SearchDefForm.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/TimeWindow.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.css didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/index.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/logo.svg didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/reportWebVitals.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/setupTests.js didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-api-gateway/where-for-dinner-api-gateway.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-availability/where-for-dinner-availability.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-notify/where-for-dinner-notify.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search/where-for-dinner-search.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-search-proc/where-for-dinner-search-proc.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/components/where-for-dinner-ui/where-for-dinner-ui.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/db/where-for-dinner-db-resource.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug catalog/resources/messaging/where-for-dinner-messaging-resource.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-ui/src/images/delete.png didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/resources/application.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/application.yaml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-h2.sql didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-mysql.sql didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/schema-postgresql.sql didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.properties didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/resources/application.yml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/resources/application.yml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/application.yml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-h2.sql didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-mysql.sql didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/schema-postgresql.sql didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/resources/application.yml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/resources/application.yml didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/resources/META-INF/spring.factories didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/resources/META-INF/spring.factories didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-api-gateway/src/main/java/com/java/example/tanzu/wherefordinner/DinnerAPIGatewayApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityApplicationTests.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerAvailabilityTestApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerCrawlerApplicationTests.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyApplicationTests.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerNotifyTestApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/SpringBaseTest.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResApplicationTests.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerResTestApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/TestContainerConfiguration.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcApplicationTests.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/test/java/com/java/example/tanzu/wherefordinner/WhereForDinnerSearchProcTestApplication.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/Availability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/entity/AvailabilityWindow.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/model/Search.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityRepository.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/repository/AvailabilityWindowRepository.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/main/java/com/java/example/tanzu/wherefordinner/resources/AvailabilityResource.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-availability/src/test/java/com/java/example/tanzu/wherefordinner/function/AvailabilitySink_processDeletedSearchTest.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/LocalRandomSearcher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-crawler/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/EmailMessageConfigProperties.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/config/PublisherConfiguration.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/functions/AvailabilitySink.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/EmailPublisher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/LoggerPublisher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-notify/src/main/java/com/java/example/tanzu/wherefordinner/publisher/Publisher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/OAuth2BindingsPropertiesProcessor.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/config/WebSecurityConfig.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/entity/Search.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/functions/SearchSupplier.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/repository/SearchRepository.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/main/java/com/java/example/tanzu/wherefordinner/resources/SearchResource.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search/src/test/java/com/java/example/tanzu/wherefordinner/repository/SearchRepositoryTest.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/DeclarativeClientConfig.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/config/StaticDiningAvailability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/exchange/CrawlerClient.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/functions/Search.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/Availability.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/AvailabilityWindow.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/model/SearchCriteria.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/SearchProcessor.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/Searcher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/HashCache.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/MemoryHashCache.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/processor/cache/RedisHashCache.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [pom.xml] -> excluded
+┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[24].delegate.transformations[1] (ReplaceText)
+┃ ┃ ┃ ┃ ┃ ┗ ┗  Info Will replace [<module>./where-for-dinner-api-gateway</module>->]
 ┃ ┃ ┃ ┃ ┗ ╺ engine.transformations[0].validated.delegate.in.transformations[0].sources[25] (Provenance)
 ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[1] (UniquePath)
+┃ ┃ ┃ ┃ ┃ Debug Multiple representations for path 'pom.xml', will use the one appearing last 
 ┃ ┗ ┗ ┗ ┗ Debug Multiple representations for path 'README.md', will use the one appearing last 
 ┗ ╺ engine.transformations[1] (UniquePath)
 ```
